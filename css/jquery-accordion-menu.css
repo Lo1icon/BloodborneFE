@@ -237,19 +237,23 @@
 }
 
 .red.jquery-accordion-menu .jquery-accordion-menu-footer,.red.jquery-accordion-menu .jquery-accordion-menu-header,.red.jquery-accordion-menu ul li a {
-	background: #ED5565
+    /*background: #ED5565*/
+	background: #58CAFD;
 }
 
 .red.jquery-accordion-menu>ul>li.active>a,.red.jquery-accordion-menu>ul>li:hover>a {
-	background: #DA4453
+	/*background: #DA4453*/
+	background: #7CD4FD;
 }
 
 .red.jquery-accordion-menu>ul>li>a {
-	border-bottom-color: #DA4453
+	/*border-bottom-color: #DA4453*/
+	border-bottom-color: #7CD4FD;
 }
 
 .red.jquery-accordion-menu ul ul.submenu li:hover>a {
-	border-left-color: #DA4453
+	/*border-left-color: #DA4453*/
+	border-left-color: #7CD4FD;
 }
 
 .white.jquery-accordion-menu .jquery-accordion-menu-footer,.white.jquery-accordion-menu .jquery-accordion-menu-header,.white.jquery-accordion-menu ul li a {
