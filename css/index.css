@@ -13,7 +13,6 @@
     position: absolute;
     left: 0;
     top: 0;
-    background-color: #58CAFD;
 }
 
 #right {
@@ -41,16 +40,6 @@
     background-color: #FFFFFF;
 
 }
-.utdData p{
-    font-size: 18px;
-    color: #58CAFD;
-    text-align: center;
-    margin-top: 10px;
-}
-.utdData a{
-    margin-left: 37%;
-    text-decoration: none;
-    text-align: center;
-    font-size:25px;
+.utdData:nth-child(1){
 
 }

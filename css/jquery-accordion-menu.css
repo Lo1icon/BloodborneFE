@@ -10,6 +10,7 @@
 
 .jquery-accordion-menu {
     min-width: 260px;
+    height:100%;
     float: left;
     position: relative;
     box-shadow: 0 20px 50px #333
@@ -204,7 +205,7 @@
     }
 }
 
-.blue.jquery-accordion-menu .jquery-accordion-menu-footer, .blue.jquery-accordion-menu .jquery-accordion-menu-header, .blue.jquery-accordion-menu ul li a {
+.blue.jquery-accordion-menu .jquery-accordion-menu-footer, .blue.jquery-accordion-menu .jquery-accordion-menu-header, .blue.jquery-accordion-menu ul li a ,.blue{
     background: #4A89DC
 }
 
@@ -220,7 +221,7 @@
     border-left-color: #3e82da
 }
 
-.green.jquery-accordion-menu .jquery-accordion-menu-footer, .green.jquery-accordion-menu .jquery-accordion-menu-header, .green.jquery-accordion-menu ul li a {
+.green.jquery-accordion-menu .jquery-accordion-menu-footer, .green.jquery-accordion-menu .jquery-accordion-menu-header, .green.jquery-accordion-menu ul li a ,.green{
     background: #03A678
 }
 
@@ -236,27 +237,25 @@
     border-left-color: #049372
 }
 
-.red.jquery-accordion-menu .jquery-accordion-menu-footer, .red.jquery-accordion-menu .jquery-accordion-menu-header, .red.jquery-accordion-menu ul li a {
-    /*background: #ED5565*/
-    background: #58CAFD;
+.red.jquery-accordion-menu .jquery-accordion-menu-footer, .red.jquery-accordion-menu .jquery-accordion-menu-header, .red.jquery-accordion-menu ul li a ,.red{
+    background: #ED5565
 }
 
 .red.jquery-accordion-menu > ul > li.active > a, .red.jquery-accordion-menu > ul > li:hover > a {
-    /*background: #DA4453*/
-    background: #7CD4FD;
+    background: #DA4453
 }
 
 .red.jquery-accordion-menu > ul > li > a {
-    /*border-bottom-color: #DA4453*/
-    border-bottom-color: #7CD4FD;
+    border-bottom-color: #DA4453
+
 }
 
 .red.jquery-accordion-menu ul ul.submenu li:hover > a {
-    /*border-left-color: #DA4453*/
-    border-left-color: #7CD4FD;
+    border-left-color: #DA4453
+
 }
 
-.white.jquery-accordion-menu .jquery-accordion-menu-footer, .white.jquery-accordion-menu .jquery-accordion-menu-header, .white.jquery-accordion-menu ul li a {
+.white.jquery-accordion-menu .jquery-accordion-menu-footer, .white.jquery-accordion-menu .jquery-accordion-menu-header, .white.jquery-accordion-menu ul li a ,.white{
     background: #fff;
     color: #555
 }
@@ -281,7 +280,7 @@
     background: rgba(0, 0, 0, .1)
 }
 
-.black.jquery-accordion-menu .jquery-accordion-menu-footer, .black.jquery-accordion-menu .jquery-accordion-menu-header, .black.jquery-accordion-menu ul li a {
+.black.jquery-accordion-menu .jquery-accordion-menu-footer, .black.jquery-accordion-menu .jquery-accordion-menu-header, .black.jquery-accordion-menu ul li a ,.black{
     background: #292929
 }
 
