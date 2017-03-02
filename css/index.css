@@ -17,11 +17,14 @@
 
 #right {
     width: 85%;
-    height: 100%;
+    height: auto;
     position: absolute;
     left: 15%;
     top: 0;
-    background-color: #FFFFFF;
+    bottom:0;
+    background-color: #f1f1f1;
+    overflow-y: hidden;
+    overflow-x: hidden;
 }
 #topMainData{
     height: 100px;
@@ -42,4 +45,23 @@
 }
 .utdData p{
     text-align: center;
+}
+#restCharts{
+    height:auto;
+    width:auto;
+    background-color: #f1f1f1;
+    overflow: hidden;
+    top:50px;
+    bottom:0;
+    right:0;
+    left:0;
+    position: absolute;
+    z-index: 99;
+}
+#topBar{
+    height:50px;
+    width:100%;
+    position: fixed;
+    top:0;
+    z-index:100;
 }
