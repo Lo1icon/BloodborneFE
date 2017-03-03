@@ -73,7 +73,7 @@
 .homeData{
     height:31%;
     width:32%;
-    background-color: #FFFFFF;
+    background: #FFFFFF !important;
     border:1px solid #f9f9f9;
     float: left;
     display: inline-block;
