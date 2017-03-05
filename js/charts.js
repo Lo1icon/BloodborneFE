@@ -366,7 +366,7 @@ $(function () {
 
 $(function () {
     var vacharts=echarts.init(document.getElementById('visActivity'));
-    var option6={
+    var option7={
         color:['#c23531','#61a0a8', '#d48265', '#91c7ae'],
         title: {
             text: '顾客活跃度',
@@ -394,7 +394,7 @@ $(function () {
             {
                 name:'访问来源',
                 type:'pie',
-                radius : '55%',
+                radius : ['20%','65%'],
                 center: ['50%', '50%'],
                 data:[
                     {value:300 , name:'高活跃度'},
@@ -437,7 +437,7 @@ $(function () {
             }
         ]
     }
-    vacharts.setOption(option6);
+    vacharts.setOption(option7);
     window.addEventListener("resize", function () {
 
         vacharts.resize();
@@ -447,7 +447,7 @@ $(function () {
 
 $(function () {
     var nocharts=echarts.init(document.getElementById('newOldVisitor'));
-    var option7={
+    var option8={
         color:['#c23531', '#91c7ae'],
         title:{
             text:"新老顾客占比"
@@ -465,7 +465,8 @@ $(function () {
             {
                 name: '访问来源',
                 type: 'pie',
-                radius : '55%',
+                // radius : '55%',
+                radius : ['20%','55%'],
                 center: ['50%', '60%'],
                 data:[
                     {value:200, name:'新顾客'},
@@ -481,10 +482,56 @@ $(function () {
             }
         ]
     }
-    nocharts.setOption(option7);
+    nocharts.setOption(option8);
     window.addEventListener("resize", function () {
 
         nocharts.resize();
+
+    });
+})
+$(function () {
+    var jicharts=echarts.init(document.getElementById('jumpVisitor'));
+    var option9={
+        color:['#c23531', '#91c7ae','#d48265'],
+        title:{
+            text:"新老顾客占比"
+        },
+        tooltip : {
+            trigger: 'item',
+            formatter: "{a} <br/>{b} : {c} ({d}%)"
+        },
+        legend: {
+            orient: 'vertical',
+            left: 'left',
+            data: ['直接访问','邮件营销','联盟广告','视频广告','搜索引擎']
+        },
+        series : [
+            {
+                name: '访问来源',
+                type: 'pie',
+                radius : ['15%','55%'],
+                center: ['50%', '60%'],
+                data:[
+                    {value:200, name:'深访率'},
+                    {value:300, name:'跳出率'},
+                    {value:500,name:'正常客流占比'}
+
+                ],
+                roseType:'area',
+                itemStyle: {
+                    emphasis: {
+                        shadowBlur: 10,
+                        shadowOffsetX: 0,
+                        shadowColor: 'rgba(0, 0, 0, 0.5)'
+                    },
+                }
+            }
+        ]
+    }
+    jicharts.setOption(option9);
+    window.addEventListener("resize", function () {
+
+        jicharts.resize();
 
     });
 })
