@@ -1,6 +1,7 @@
 /**
  * Created by Lynn on 2017/3/3.
  */
+ // color:['#c23531','#2f4554', '#61a0a8', '#d48265', '#91c7ae','#749f83',  '#ca8622', '#bda29a','#6e7074', '#546570', '#c4ccd3']
 $(function () {
     var keliucharts = echarts.init(document.getElementById('traffic'));
 
@@ -366,6 +367,7 @@ $(function () {
 $(function () {
     var vacharts=echarts.init(document.getElementById('visActivity'));
     var option6={
+        color:['#c23531','#61a0a8', '#d48265', '#91c7ae'],
         title: {
             text: '顾客活跃度',
             // left: 'center',
@@ -404,14 +406,12 @@ $(function () {
                 label: {
                     normal: {
                         textStyle: {
-                            color: 'gray'
                         }
                     }
                 },
                 labelLine: {
                     normal: {
                         lineStyle: {
-                            color: 'gray'
                         },
                         smooth: 0.2,
                         length: 10,
@@ -420,9 +420,12 @@ $(function () {
                 },
                 itemStyle: {
                     normal: {
-                        color: '#c23531',
-                        // shadowBlur: 200,
-                        // shadowColor: 'rgba(0, 0, 0, 0.5)'
+
+                    },
+                    emphasis:{
+                        shadowBlur: 10,
+                        shadowOffsetX: 0,
+                        shadowColor: 'rgba(0, 0, 0, 0.5)'
                     }
                 },
 
@@ -438,6 +441,50 @@ $(function () {
     window.addEventListener("resize", function () {
 
         vacharts.resize();
+
+    });
+})
+
+$(function () {
+    var nocharts=echarts.init(document.getElementById('newOldVisitor'));
+    var option7={
+        color:['#c23531', '#91c7ae'],
+        title:{
+            text:"新老顾客占比"
+        },
+        tooltip : {
+            trigger: 'item',
+            formatter: "{a} <br/>{b} : {c} ({d}%)"
+        },
+        legend: {
+            orient: 'vertical',
+            left: 'left',
+            data: ['直接访问','邮件营销','联盟广告','视频广告','搜索引擎']
+        },
+        series : [
+            {
+                name: '访问来源',
+                type: 'pie',
+                radius : '55%',
+                center: ['50%', '60%'],
+                data:[
+                    {value:200, name:'新顾客'},
+                    {value:500, name:'老顾客'}
+                ],
+                itemStyle: {
+                    emphasis: {
+                        shadowBlur: 10,
+                        shadowOffsetX: 0,
+                        shadowColor: 'rgba(0, 0, 0, 0.5)'
+                    },
+                }
+            }
+        ]
+    }
+    nocharts.setOption(option7);
+    window.addEventListener("resize", function () {
+
+        nocharts.resize();
 
     });
 })
