@@ -376,7 +376,11 @@ $(function () {
             //     color: '#ccc'
             // }
         },
-
+        // legend: {
+        //     orient: 'vertical',
+        //     left: 'right',
+        //     data: ['高活跃度','中活跃度','低活跃度','沉睡客户']
+        // },
         tooltip : {
             trigger: 'item',
             formatter: "{a} <br/>{b} : {c} ({d}%)"
@@ -458,12 +462,12 @@ $(function () {
         },
         legend: {
             orient: 'vertical',
-            left: 'left',
-            data: ['直接访问','邮件营销','联盟广告','视频广告','搜索引擎']
+            left: 'right',
+            data: ['新顾客','老顾客']
         },
         series : [
             {
-                name: '访问来源',
+                name: '顾客类别',
                 type: 'pie',
                 // radius : '55%',
                 radius : ['20%','55%'],
@@ -502,8 +506,8 @@ $(function () {
         },
         legend: {
             orient: 'vertical',
-            left: 'left',
-            data: ['直接访问','邮件营销','联盟广告','视频广告','搜索引擎']
+            left: 'right',
+            data: ['深访率','跳出率','正常客流占比']
         },
         series : [
             {
@@ -512,9 +516,9 @@ $(function () {
                 radius : ['15%','55%'],
                 center: ['50%', '60%'],
                 data:[
-                    {value:200, name:'深访率'},
-                    {value:300, name:'跳出率'},
-                    {value:500,name:'正常客流占比'}
+                    {value:0.2, name:'深访率'},
+                    {value:0.3, name:'跳出率'},
+                    {value:0.5,name:'正常客流占比'}
 
                 ],
                 roseType:'area',
