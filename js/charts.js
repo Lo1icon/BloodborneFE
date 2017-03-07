@@ -5,25 +5,27 @@
 $(function () {
     var keliucharts = echarts.init(document.getElementById('traffic'));
 
+    var keliudata = [];
+    // var now = +new Date(2017, 3, 6);
+    var now=+new Date();
+    var threeSec = 3* 1000;
+    var value = Math.random() * 1000;
+    for (var i = 0; i < 400; i++) {
+        keliudata.push(randomData());
+    }
+
     function randomData() {
-        now = new Date(+now + oneDay);
+        now = new Date(+now + threeSec);
         value = value + Math.random() * 21 - 10;
         return {
             name: now.toString(),
             value: [
-                [now.getFullYear(), now.getMonth() + 1, now.getDate()].join('/'),
+                ([now.getFullYear(), now.getMonth() + 1, now.getDate()].join('/')+' '+now.getHours()+':'+now.getMinutes()+':'+now.getSeconds()),
                 Math.round(value)
             ]
         }
     }
 
-    var keliudata = [];
-    var now = +new Date(2017, 3, 3);
-    var oneDay = 24 * 3600 * 1000;
-    var value = Math.random() * 1000;
-    for (var i = 0; i < 1000; i++) {
-        keliudata.push(randomData());
-    }
 
     var option1 = {
         title: {
@@ -34,7 +36,8 @@ $(function () {
             formatter: function (params) {
                 params = params[0];
                 var date = new Date(params.name);
-                return date.getDate() + '/' + (date.getMonth() + 1) + '/' + date.getFullYear() + ' : ' + params.value[1];
+                // return date.getDate() + '/' + (date.getMonth() + 1) + '/' + date.getFullYear() + ' : ' + params.value[1];
+                return date.getHours()+':'+date.getMinutes()+':'+date.getSeconds()+'/'+params.value[1];
             },
             axisPointer: {
                 animation: false
@@ -66,7 +69,7 @@ $(function () {
 
     setInterval(function () {
 
-        for (var i = 0; i < 5; i++) {
+        for (var i = 0; i < 1; i++) {
             keliudata.shift();
             keliudata.push(randomData());
         }
@@ -76,7 +79,7 @@ $(function () {
                 data: keliudata
             }]
         });
-    }, 1000);
+    }, 3000);
     // window.onresize=keliucharts.resize;
     window.addEventListener("resize", function () {
 
@@ -88,24 +91,24 @@ $(function () {
 $(function () {
     var visitorcharts = echarts.init(document.getElementById('visitor'));
 
+    var visitordata = [];
+    var now=+new Date();
+    var threeSec = 3* 1000;
+    var value = Math.random() * 1000;
+    for (var i = 0; i < 400; i++) {
+        visitordata.push(randomData());
+    }
+
     function randomData() {
-        now = new Date(+now + oneDay);
+        now = new Date(+now + threeSec);
         value = value + Math.random() * 21 - 10;
         return {
             name: now.toString(),
             value: [
-                [now.getFullYear(), now.getMonth() + 1, now.getDate()].join('/'),
+                ([now.getFullYear(), now.getMonth() + 1, now.getDate()].join('/')+' '+now.getHours()+':'+now.getMinutes()+':'+now.getSeconds()),
                 Math.round(value)
             ]
         }
-    }
-
-    var visitordata = [];
-    var now = +new Date(1997, 9, 3);
-    var oneDay = 24 * 3600 * 1000;
-    var value = Math.random() * 1000;
-    for (var i = 0; i < 1000; i++) {
-        visitordata.push(randomData());
     }
 
     var option2 = {
@@ -149,7 +152,7 @@ $(function () {
 
     setInterval(function () {
 
-        for (var i = 0; i < 5; i++) {
+        for (var i = 0; i < 1; i++) {
             visitordata.shift();
             visitordata.push(randomData());
         }
@@ -159,7 +162,7 @@ $(function () {
                 data: visitordata
             }]
         });
-    }, 1000);
+    }, 3000);
     // window.onresize=visitorcharts.resize;
     window.addEventListener("resize", function () {
 
@@ -171,20 +174,25 @@ $(function () {
 $(function () {
     var vispercharts = echarts.init(document.getElementById('visPer'));
     var visperdata = [0.01, 0.02];
-    var now = +new Date(1997, 9, 3);
-    var oneDay = 24 * 3600 * 1000;
+    var now=+new Date();
+    var threeSec = 3* 1000;
     var value = Math.random();
-    for (var i = 0; i < 50; i++) {
+    for (var i = 0; i < 400; i++) {
         visperdata.push(randomData());
     }
     function randomData() {
-        now = new Date(+now + oneDay);
-        value = Math.random().toFixed(2);
+        now = new Date(+now + threeSec);
+        if(value >1)
+            value = (value - Math.random()/5);
+        else if(value <0)
+            value=(value+Math.random()/5);
+        else
+            value=(value+Math.random()/5-0.1);
         return {
             name: now.toString(),
             value: [
-                [now.getFullYear(), now.getMonth() + 1, now.getDate()].join('/'),
-                value
+                ([now.getFullYear(), now.getMonth() + 1, now.getDate()].join('/')+' '+now.getHours()+':'+now.getMinutes()+':'+now.getSeconds()),
+                (value.toFixed(4))
             ]
         }
     }
@@ -279,9 +287,9 @@ $(function () {
                     alignWithLabel: true
                 },
                 // x轴需要全部显示时添加
-                axisLabel:{
-                    interval:0
-                }
+                // axisLabel:{
+                //     interval:0
+                // }
             }
         ],
         yAxis: [
@@ -363,7 +371,9 @@ $(function () {
     });
 
 })
-
+// $(function () {
+//     var
+// })
 $(function () {
     var vacharts=echarts.init(document.getElementById('visActivity'));
     var option7={
@@ -396,7 +406,7 @@ $(function () {
         },
         series : [
             {
-                name:'访问来源',
+                name:'顾客类型',
                 type:'pie',
                 radius : ['20%','65%'],
                 center: ['50%', '50%'],
@@ -456,15 +466,18 @@ $(function () {
         title:{
             text:"新老顾客占比"
         },
+        grid:{
+            top:0,
+        },
         tooltip : {
             trigger: 'item',
             formatter: "{a} <br/>{b} : {c} ({d}%)"
         },
-        legend: {
-            orient: 'vertical',
-            left: 'right',
-            data: ['新顾客','老顾客']
-        },
+        // legend: {
+        //     orient: 'vertical',
+        //     left: 'right',
+        //     data: ['新顾客','老顾客']
+        // },
         series : [
             {
                 name: '顾客类别',
@@ -498,20 +511,23 @@ $(function () {
     var option9={
         color:['#c23531', '#91c7ae','#d48265'],
         title:{
-            text:"新老顾客占比"
+            text:"深访/跳出占比"
         },
         tooltip : {
             trigger: 'item',
-            formatter: "{a} <br/>{b} : {c} ({d}%)"
+            formatter: "{b} : {c} ({d}%)"
         },
-        legend: {
-            orient: 'vertical',
-            left: 'right',
-            data: ['深访率','跳出率','正常客流占比']
-        },
+        // grid:{
+        //     height:'70%'
+        // },
+        // legend: {
+        //     orient: 'vertical',
+        //     left: 'right',
+        //     data: ['深访率','跳出率','正常客流占比']
+        // },
         series : [
             {
-                name: '访问来源',
+                name: '顾客类别',
                 type: 'pie',
                 radius : ['15%','55%'],
                 center: ['50%', '60%'],
